@@ -10,7 +10,7 @@ jobs:
     - uses: jackfirth/racket-package-ci-action@v0.1.4
       with:
         name: refactoring-test-package
-    - uses: jackfirth/racket-package-resyntax-action@v0.0.1
+    - uses: jackfirth/racket-package-resyntax-action@v0.0.2
       id: resyntax
       with:
         name: refactoring-test-package
