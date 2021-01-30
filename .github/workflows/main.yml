@@ -4,9 +4,21 @@ on: [push, pull_request]
 
 jobs:
   racket-package-ci:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
     - uses: jackfirth/racket-package-ci-action@v0.1.4
       with:
         name: refactoring-test-package
+    - uses: jackfirth/racket-package-resyntax-action@v0.0.1
+      id: resyntax
+      with:
+        name: refactoring-test-package
+    - uses: LouisBrunner/checks-action@v1.1.1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Resyntax
+        conclusion: ${{ steps.resyntax.outputs.conclusion }}
+        output: |
+          {"summary":${{ steps.resyntax.outputs.summary }}}
+        annotations: ${{ steps.resyntax.outputs.annotations }}
