@@ -9,3 +9,8 @@
 (define (g x)
   (let ([z 2])
     (+ x z)))
+
+
+(define (h x)
+  (let ([z 2])
+    (+ x z)))
