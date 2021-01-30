@@ -7,9 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: jackfirth/racket-package-ci-action@v0.1.4
-      with:
-        name: refactoring-test-package
     - uses: jackfirth/racket-package-resyntax-action@v0.0.2
       id: resyntax
       with:
